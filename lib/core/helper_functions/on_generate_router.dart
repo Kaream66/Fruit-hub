@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_ecommerce/features/splash/presentation/views/splash_view.dart';
+import 'package:fruits_ecommerce/features/splash/presentation/views/widgets/splash_view.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings setting) {
   switch (setting.name) {
