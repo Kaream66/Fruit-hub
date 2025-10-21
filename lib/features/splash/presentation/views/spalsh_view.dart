@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_hub/features/splash/presentation/widgets/splash_view_body.dart';
 
 class SplashView extends StatelessWidget {
-  @override
+  const SplashView({super.key});
   static const routeName = 'splash';
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: SafeArea(child: const SplashViewBody()),
+    );
   }
 }
