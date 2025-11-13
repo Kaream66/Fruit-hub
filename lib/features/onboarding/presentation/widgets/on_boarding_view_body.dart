@@ -1,5 +1,7 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:fruits_hub/features/onboarding/presentation/widgets/page_view_item.dart';
+import 'package:fruits_hub/core/utils/app_colors.dart';
+import 'package:fruits_hub/features/onboarding/presentation/widgets/on_boarding_page_view.dart';
 
 class OnBoardingViewBody extends StatelessWidget {
   const OnBoardingViewBody({super.key});
@@ -8,20 +10,12 @@ class OnBoardingViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(
-          child: PageViewItem(
-            image: 'assets/images/page_view_item1_image.svg',
-            backGroundImage:
-                'assets/images/page_view_item1_background_image.svg',
-            title: Row(
-              children: [
-                Text('مرحبًا بك في '),
-                Text('Fruit'),
-                Text('HUB'),
-              ],
-            ),
-            subTitle:
-                'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
+        Expanded(child: OnBoardingPageView()),
+        DotsIndicator(
+          dotsCount: 2,
+          decorator: DotsDecorator(
+            activeColor: AppColors.primaryColor,
+            color: AppColors.primaryColor.withOpacity(0.5),
           ),
         ),
       ],
