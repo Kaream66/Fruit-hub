@@ -1,6 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits_hub/constants.dart';
+import 'package:fruits_hub/core/services/shared_prefernces_singlton.dart';
 import 'package:fruits_hub/core/utils/app_colors.dart';
 import 'package:fruits_hub/core/widgets/custom_button.dart';
 import 'package:fruits_hub/features/auth/presentation/views/log_in_view.dart';
@@ -61,6 +62,7 @@ class _OnBoardingViewBodyState
             ),
             child: CustomButton(
               onPressed: () {
+                Prefs().setBool(kIsOnBoardingViewSeen, true);
                 Navigator.pushReplacementNamed(
                   context,
                   LogInView.routeName,

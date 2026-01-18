@@ -6,6 +6,7 @@ import 'package:fruits_hub/features/splash/presentation/views/spalsh_view.dart';
 import 'package:fruits_hub/generated/l10n.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   Prefs.init();
   runApp(const FruitsHub());
 }
