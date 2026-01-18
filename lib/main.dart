@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruits_hub/core/helper_functions/ongenerate_routes.dart';
+import 'package:fruits_hub/core/services/shared_prefernces_singlton.dart';
 import 'package:fruits_hub/features/splash/presentation/views/spalsh_view.dart';
 import 'package:fruits_hub/generated/l10n.dart';
 
-void main() {
+void main() async {
+  Prefs.init();
   runApp(const FruitsHub());
 }
 
