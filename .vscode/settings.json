@@ -1,3 +1,5 @@
 {
-    "cmake.sourceDirectory": "E:/fruits_hub/windows"
+    "cmake.sourceDirectory": "E:/fruits_hub/windows",
+    "dart.useFlutterDev": true,
+    "dart.experimentalRefactors": true
 }
