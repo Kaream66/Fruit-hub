@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_hub/constants.dart';
 import 'package:fruits_hub/core/utils/app_colors.dart';
 import 'package:fruits_hub/core/utils/app_text_styles.dart';
+import 'package:fruits_hub/features/auth/presentation/widgets/custom_check_box.dart';
 
-class TermsAndConditions extends StatelessWidget {
+class TermsAndConditions extends StatefulWidget {
   const TermsAndConditions({super.key});
+  @override
+  State<TermsAndConditions> createState() =>
+      _TermsAndConditionsState();
+}
+
+class _TermsAndConditionsState
+    extends State<TermsAndConditions> {
+  bool isTermsAccepted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +20,18 @@ class TermsAndConditions extends StatelessWidget {
       offset: Offset(14, 0),
       child: Row(
         children: [
-          
-          Checkbox(value: false, onChanged: (value) {}),
-          SizedBox(
-            width:
-                MediaQuery.of(context).size.width -
-                (kHorizintalPadding * 2) -
-                48,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CustomCheckBox(
+              onChecked: (value) {
+                isTermsAccepted = value;
+                setState(() {});
+              },
+              isChecked: isTermsAccepted,
+            ),
+          ),
+          SizedBox(width: 16),
+          Expanded(
             child: Text.rich(
               TextSpan(
                 children: [
