@@ -7,7 +7,6 @@ class AuthRepoImpl extends AuthRepo {
   @override
   Future<Either<Failures, UserEntity>>
   createUserWithEmailAndPassword(String email, String password) {
-    // TODO: implement createUserWithEmailAndPassword
     throw UnimplementedError();
   }
 }
