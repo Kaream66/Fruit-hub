@@ -11,12 +11,10 @@ class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
 
   @override
-  State<OnBoardingViewBody> createState() =>
-      _OnBoardingViewBodyState();
+  State<OnBoardingViewBody> createState() => _OnBoardingViewBodyState();
 }
 
-class _OnBoardingViewBodyState
-    extends State<OnBoardingViewBody> {
+class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
   late PageController pageController;
   var currentPage = 0;
   @override
@@ -44,9 +42,7 @@ class _OnBoardingViewBodyState
           dotsCount: 2,
           decorator: DotsDecorator(
             activeColor: AppColors.primaryColor,
-            color: currentPage == 1
-                ? AppColors.primaryColor
-                : AppColors.primaryColor.withOpacity(0.2),
+            color: currentPage == 1 ? AppColors.primaryColor : AppColors.primaryColor.withValues(alpha: 0.2),
           ),
         ),
 
@@ -57,16 +53,11 @@ class _OnBoardingViewBodyState
           maintainState: true,
 
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: kHorizintalPadding,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: kHorizintalPadding),
             child: CustomButton(
               onPressed: () {
                 Prefs().setBool(kIsOnBoardingViewSeen, true);
-                Navigator.pushReplacementNamed(
-                  context,
-                  LogInView.routeName,
-                );
+                Navigator.pushReplacementNamed(context, LogInView.routeName);
               },
               text: 'ابدأ الأن',
             ),
