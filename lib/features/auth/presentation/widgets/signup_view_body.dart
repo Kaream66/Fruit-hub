@@ -12,16 +12,11 @@ class SignupViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: kHorizintalPadding,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: kHorizintalPadding),
         child: Column(
           children: [
             SizedBox(height: 24),
-            CustomTextField(
-              hintText: 'الاسم كامل',
-              textInputType: TextInputType.name,
-            ),
+            CustomTextField(hintText: 'الاسم كامل', textInputType: TextInputType.name),
             SizedBox(height: 16),
             CustomTextField(
               hintText: 'البريد الإلكتروني',
@@ -32,10 +27,7 @@ class SignupViewBody extends StatelessWidget {
             CustomTextField(
               hintText: 'كلمة المرور',
               textInputType: TextInputType.visiblePassword,
-              suffixIcon: Icon(
-                Icons.remove_red_eye,
-                color: Color(0xffC9CECF),
-              ),
+              suffixIcon: Icon(Icons.remove_red_eye, color: Color(0xffC9CECF)),
             ),
             TermsAndConditions(),
             SizedBox(height: 30),

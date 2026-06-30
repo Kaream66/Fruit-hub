@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruits_hub/core/helper_functions/ongenerate_routes.dart';
+import 'package:fruits_hub/core/services/getit_service.dart';
 import 'package:fruits_hub/core/services/shared_prefernces_singlton.dart';
 import 'package:fruits_hub/core/utils/app_colors.dart';
 import 'package:fruits_hub/features/splash/presentation/views/spalsh_view.dart';
@@ -10,10 +11,9 @@ import 'package:fruits_hub/generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   Prefs.init();
+  setupGetIt();
   runApp(const FruitsHub());
 }
 
@@ -26,9 +26,7 @@ class FruitsHub extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Cairo',
         scaffoldBackgroundColor: Colors.white,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primaryColor,
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
       ),
       localizationsDelegates: [
         S.delegate,
