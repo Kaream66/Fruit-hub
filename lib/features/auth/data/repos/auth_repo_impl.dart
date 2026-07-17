@@ -24,6 +24,8 @@ class AuthRepoImpl extends AuthRepo {
       return right(UserModel.fromFireBaseUser(user));
     } on CustomException catch (e) {
       return left(ServerFailure(e.toString()));
+    } catch (e) {
+      return left(ServerFailure('لم يتم الحصول على البيانات'));
     }
   }
 }

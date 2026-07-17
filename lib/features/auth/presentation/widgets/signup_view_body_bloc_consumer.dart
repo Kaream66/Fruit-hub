@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub/features/auth/presentation/manager/cubits/cubit/sign_up_cubit.dart';
 import 'package:fruits_hub/features/auth/presentation/widgets/signup_view_body.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SignUpViewBodyBlocConsumer extends StatelessWidget {
   const SignUpViewBodyBlocConsumer({super.key});
@@ -9,9 +10,17 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignUpCubit, SignUpState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is SignUpSuccess) {}
+        if (state is SignUpFailure) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMessage)));
+        }
+      },
       builder: (context, state) {
-        return SignupViewBody();
+        return ModalProgressHUD(
+          inAsyncCall: state is SignUpLoading ? true : false,
+          child: SignupViewBody(),
+        );
       },
     );
   }
