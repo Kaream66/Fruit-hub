@@ -7,15 +7,17 @@ class CustomTextField extends StatelessWidget {
     required this.textInputType,
     this.suffixIcon,
     this.onSaved,
+    this.obsecureText = false,
   });
   final String hintText;
   final TextInputType textInputType;
   final Widget? suffixIcon;
   final void Function(String?)? onSaved;
-
+  final bool obsecureText;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: obsecureText,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'هذا الحقل مطلوب';
@@ -39,6 +41,9 @@ class CustomTextField extends StatelessWidget {
 OutlineInputBorder buildBorder() {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(4),
-    borderSide: const BorderSide(width: 1, color: Color(0xFFE6E9E9)),
+    borderSide: const BorderSide(
+      width: 1,
+      color: Color(0xFFE6E9E9),
+    ),
   );
 }
